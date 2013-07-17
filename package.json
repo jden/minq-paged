@@ -3,7 +3,9 @@
   "author": "jden <jason@denizac.org>",
   "version": "0.1.0",
   "description": "return a paged query result set from a minq query",
-  "keywords": ["minq"],
+  "keywords": [
+    "minq"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha"
@@ -13,6 +15,14 @@
   "readmeFilename": "README.md",
   "devDependencies": {
     "chai": "~1.6.0",
-    "mocha": "~1.9.0"
+    "mocha": "~1.9.0",
+    "moquire": "~1.5.1",
+    "rope": "~0.5.0",
+    "sinon-chai": "~2.4.0",
+    "sinon": "~1.7.3"
+  },
+  "dependencies": {
+    "q": "~0.9.6",
+    "minq": "~0.10.1"
   }
 }
