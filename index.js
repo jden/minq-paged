@@ -13,9 +13,9 @@ function minqPaged (query) {
 minqPaged.prototype.toArray = function () {
   var orig = this._query
   // run the same query as a count
-  var count = minq(orig.db)
-    .from(orig.collection)
-    .where(orig.query)
+  var count = minq(orig._.db)
+    .from(orig._.collection)
+    .where(orig._.query)
     .count()
 
   // force the query
@@ -25,10 +25,10 @@ minqPaged.prototype.toArray = function () {
     function (count, resultSet) {
       // add paged properties to resultSet
       resultSet.totalLength = count
-      resultSet.limit = orig.options.limit
-      resultSet.skip = orig.options.skip
+      resultSet.limit = orig._.options.limit
+      resultSet.skip = orig._.options.skip
       resultSet.nextSkip = resultSet.skip + resultSet.length
-      resultSet.sortOrder = orig.options.sort
+      resultSet.sortOrder = orig._.options.sort
       return resultSet
     })
 }

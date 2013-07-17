@@ -22,7 +22,7 @@ describe('minq-paged', function () {
       .stub({data: 50})
       .minq()
     var spy = function (db) {
-      db.should.equal(mockQuery.db)
+      db.should.equal(mockQuery._.db)
       return minqSpy
     }
 
@@ -30,15 +30,17 @@ describe('minq-paged', function () {
     var minqPaged = moquire('../', {minq: spy})
 
     var mockQuery = {
-      db: {},
-      collection: 'plays',
-      query: {
-        category: 'history'
-      },
-      options: {
-        limit: 3,
-        skip: 0,
-        sort: {name: 1}
+      _:{
+        db: {},
+        collection: 'plays',
+        query: {
+          category: 'history'
+        },
+        options: {
+          limit: 3,
+          skip: 0,
+          sort: {name: 1}
+        },
       },
       toArray: sinon.stub().returns(Q([
         {name: 'henry iv'},
