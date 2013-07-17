@@ -1,7 +1,7 @@
 {
   "name": "minq-paged",
   "author": "jden <jason@denizac.org>",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "return a paged query result set from a minq query",
   "keywords": [
     "minq"
