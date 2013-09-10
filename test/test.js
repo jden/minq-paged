@@ -59,6 +59,7 @@ describe('minq-paged', function () {
 
         results.totalLength.should.equal(50)
         results.length.should.equal(3)
+        Array.isArray(results.documents).should.equal(true)
         results.limit.should.equal(3)
         results.skip.should.equal(0)
         results.nextSkip.should.equal(3)

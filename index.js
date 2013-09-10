@@ -22,14 +22,20 @@ minqPaged.prototype.toArray = function () {
   var query = orig.toArray()
 
   return Q.spread([count, query],
-    function (count, resultSet) {
+    function (count, results) {
       // add paged properties to resultSet
-      resultSet.totalLength = count
-      resultSet.limit = orig._.options.limit
-      resultSet.skip = orig._.options.skip
-      resultSet.nextSkip = resultSet.skip + resultSet.length
-      resultSet.sortOrder = orig._.options.sort
-      return resultSet
+      var len = results.length
+
+      return {
+        documents: results,
+        length: len,
+        totalLength: count,
+        limit: orig._.options.limit,
+        skip: orig._.options.skip,
+        nextSkip: orig._.options.skip + len,
+        sortOrder: orig._.options.sort
+      }
+
     })
 }
 

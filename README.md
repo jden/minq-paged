@@ -19,6 +19,9 @@ minqPaged(minq.from('plays')
   console.log(results.totalLength)
   // => 54
 
+  console.log(results.documents)
+  // => the results of the original query
+
   })
 
 ```
@@ -36,7 +39,8 @@ type PagedQuery: {
   toArray: () => Promise<PagedResultSet>
 }
 
-type PagedResultSet: Array & {
+type PagedResultSet: {
+  results: Array,
   totalLength: Int,
   limit: Int?,
   skip: Int?,
